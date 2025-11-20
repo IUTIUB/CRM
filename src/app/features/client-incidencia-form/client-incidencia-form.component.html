@@ -1,0 +1,64 @@
+<div class="max-w-2xl mx-auto animate-fade-in-up">
+  
+  <a routerLink="/portal-cliente/dashboard" class="inline-flex items-center text-gray-500 hover:text-blue-600 mb-6 transition cursor-pointer">
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+    </svg>
+    Volver al Dashboard
+  </a>
+
+  <div class="bg-white shadow-md rounded-xl border border-gray-200 p-8">
+    
+    <div class="mb-6 border-b border-gray-100 pb-4">
+      <h2 class="text-2xl font-bold text-gray-800">Reportar una Incidencia</h2>
+      <p class="text-gray-500 mt-1">Describe el problema con tu pedido o producto.</p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="enviar()">
+      
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Asunto del problema *</label>
+        <input type="text" formControlName="titulo" 
+               placeholder="Ej: Pan llegó aplastado, Falta pedido..."
+               class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition">
+        @if (form.get('titulo')?.invalid && form.get('titulo')?.touched) {
+          <p class="text-red-500 text-xs mt-1">Por favor, escribe un asunto breve (mínimo 5 letras).</p>
+        }
+      </div>
+
+      <div class="mb-6">
+        <label class="block text-sm font-medium text-gray-700 mb-2">Descripción detallada *</label>
+        <textarea formControlName="descripcion" rows="5"
+                  placeholder="Explícanos qué ha pasado..."
+                  class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition resize-none"></textarea>
+        @if (form.get('descripcion')?.invalid && form.get('descripcion')?.touched) {
+          <p class="text-red-500 text-xs mt-1">Cuéntanos un poco más (mínimo 10 letras).</p>
+        }
+      </div>
+
+      <div class="flex justify-end gap-3 pt-4">
+        <a routerLink="/portal-cliente/dashboard" 
+           class="px-5 py-2.5 rounded-lg text-gray-700 font-medium hover:bg-gray-100 transition cursor-pointer">
+          Cancelar
+        </a>
+        
+        <button type="submit" 
+                [disabled]="form.invalid || enviando"
+                [class.opacity-50]="form.invalid || enviando"
+                class="px-6 py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-md transition flex items-center">
+          
+          @if (enviando) {
+            <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Enviando...
+          } @else {
+            Enviar Incidencia
+          }
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>

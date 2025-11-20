@@ -2,10 +2,15 @@ import { Routes } from '@angular/router';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { LoginComponent } from './core/auth/login/login.component';
 
+//Componentes Cliente
+import { ClientLayoutComponent } from './layout/client-layout/client-layout.component';
+import { ClientDashboardComponent } from './features/client-dashboard/client-dashboard.component';
+import { ClientIncidenciaFormComponent } from './features/client-incidencia-form/client-incidencia-form.component';
 // Componentes Admin
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { ClienteListComponent } from './features/cliente-list/cliente-list.component';
 import { ClienteFormComponent } from './features/cliente-form/cliente-form.component';
+
 
 export const routes: Routes = [
   
@@ -30,8 +35,13 @@ export const routes: Routes = [
   // 3. ZONA PRIVADA (CLIENTE - La haremos luego)
   { 
     path: 'portal-cliente', 
-    loadComponent: () => import('./features/dashboard/dashboard.component').then(m => m.DashboardComponent) 
-    // ^ Truco temporal: Reutilizamos dashboard para que no de error 404 al probar el cliente
+    component: ClientLayoutComponent, // <--- Usamos el Layout Nuevo
+    children: [
+      { path: 'dashboard', component: ClientDashboardComponent },
+      { path: 'incidencia/nueva', component: ClientIncidenciaFormComponent },
+      // Redirección por defecto
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
+    ]
   },
 
   // REDIRECCIÓN INICIAL: Si entras a la raíz, vas al login
