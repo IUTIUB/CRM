@@ -1,11 +1,11 @@
-<div class="h-screen w-64 bg-slate-900 text-white flex flex-col shadow-lg">
+  <div class="h-screen w-64 bg-slate-900 text-white flex flex-col shadow-lg">
   <div class="h-16 flex items-center justify-center border-b border-slate-700">
     <h1 class="text-xl font-bold text-blue-400 tracking-wider">PANADERÍA CRM</h1>
   </div>
 
   <nav class="flex-1 px-2 py-4 space-y-2">
     
-    <a routerLink="/dashboard" 
+    <a routerLink="/admin/dashboard" 
        routerLinkActive="bg-blue-600 text-white"
        class="flex items-center px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white rounded-md transition-colors cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -14,7 +14,7 @@
       Dashboard
     </a>
 
-    <a routerLink="/clientes" 
+    <a routerLink="/admin/clientes" 
        routerLinkActive="bg-blue-600 text-white"
        class="flex items-center px-4 py-3 text-slate-300 hover:bg-slate-800 hover:text-white rounded-md transition-colors cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -25,13 +25,61 @@
 
   </nav>
 
-  <div class="p-4 border-t border-slate-700">
+  <div class="p-4 border-t border-slate-700 flex items-center justify-between">
+    
     <div class="flex items-center gap-3">
-      <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center font-bold">A</div>
-      <div>
-        <p class="text-sm font-medium">Admin</p>
-        <p class="text-xs text-slate-400">admin&#64;panaderia.com</p>
+      <div class="w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center font-bold text-sm text-white">
+        A
+      </div>
+      <div class="overflow-hidden">
+        <p class="text-sm font-medium text-white truncate w-24">Admin</p>
+        <p class="text-[10px] text-slate-400 truncate w-24">admin&#64;panaderia.com</p>
       </div>
     </div>
+
+    <button (click)="abrirModal()" 
+            class="text-slate-400 hover:text-red-400 transition-colors p-2 rounded-md hover:bg-slate-800 cursor-pointer"
+            title="Cerrar Sesión">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+      </svg>
+    </button>
   </div>
-</div>
+</div> 
+@if (showLogoutModal()) {
+  <div class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 animate-fade-in">
+    
+    <div class="bg-white rounded-xl shadow-2xl w-full max-w-sm overflow-hidden animate-scale-in">
+      
+      <div class="bg-red-50 p-6 text-center border-b border-red-100">
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-red-100 mb-4">
+          <svg class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+          </svg>
+        </div>
+        <h3 class="text-lg leading-6 font-bold text-gray-900">
+          ¿Cerrar Sesión?
+        </h3>
+        <p class="mt-2 text-sm text-gray-500">
+          Tendrás que volver a introducir tus credenciales para entrar.
+        </p>
+      </div>
+
+      <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse gap-2">
+        
+        <button (click)="confirmarLogout()" 
+                type="button" 
+                class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none sm:ml-3 sm:w-auto sm:text-sm cursor-pointer transition">
+          Salir ahora
+        </button>
+
+        <button (click)="cancelar()" 
+                type="button" 
+                class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm cursor-pointer transition">
+          Cancelar
+        </button>
+      </div>
+
+    </div>
+  </div>
+}

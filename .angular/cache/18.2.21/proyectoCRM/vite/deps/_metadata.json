@@ -1,74 +1,43 @@
 {
-<<<<<<< HEAD
-  "hash": "cd9219b2",
+  "hash": "649407d3",
   "configHash": "88786372",
-  "lockfileHash": "ae61d7f3",
-  "browserHash": "4d6f9d84",
-=======
-  "hash": "6df6ee24",
-  "configHash": "0f15f582",
   "lockfileHash": "a2985173",
-  "browserHash": "99a0e3e2",
->>>>>>> fa101fa261dfe566ef1527ca92413379256f2af8
+  "browserHash": "30930c1c",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-<<<<<<< HEAD
-      "fileHash": "fcc01c9e",
-=======
-      "fileHash": "56084441",
->>>>>>> fa101fa261dfe566ef1527ca92413379256f2af8
+      "fileHash": "75462fd5",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-<<<<<<< HEAD
-      "fileHash": "ab8083a3",
-=======
-      "fileHash": "3a0bafbc",
->>>>>>> fa101fa261dfe566ef1527ca92413379256f2af8
+      "fileHash": "7ae09c9f",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-<<<<<<< HEAD
-      "fileHash": "19973a77",
-=======
-      "fileHash": "ac33e542",
->>>>>>> fa101fa261dfe566ef1527ca92413379256f2af8
+      "fileHash": "1bad7328",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-<<<<<<< HEAD
-      "fileHash": "f15d4a3b",
-=======
-      "fileHash": "4ffc941f",
->>>>>>> fa101fa261dfe566ef1527ca92413379256f2af8
+      "fileHash": "23d1e0f9",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-<<<<<<< HEAD
-      "fileHash": "a41192a6",
-=======
-      "fileHash": "f05dca1d",
->>>>>>> fa101fa261dfe566ef1527ca92413379256f2af8
+      "fileHash": "cbb67b66",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-<<<<<<< HEAD
-      "fileHash": "72cb05e7",
-=======
-      "fileHash": "4d84cc2c",
->>>>>>> fa101fa261dfe566ef1527ca92413379256f2af8
+      "fileHash": "3631e3a2",
       "needsInterop": false
     }
   },
