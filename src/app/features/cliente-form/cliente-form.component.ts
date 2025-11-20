@@ -62,7 +62,7 @@ export class ClienteFormComponent implements OnInit {
     
     this.clienteService.saveCliente(cliente).subscribe(() => {
       // Al terminar, volvemos a la lista
-      this.router.navigate(['/clientes']);
+      this.router.navigate(['/admin/clientes']);
     });
   }
 }
