@@ -7,26 +7,55 @@ import { Incidencia } from '../models/incidencia.models';
 })
 export class IncidenciaService {
 
-  // Simulamos una base de datos vacía al principio
-  private incidenciasMock: Incidencia[] = [];
+  // DATOS DE PRUEBA (Para que el Admin tenga algo que ver)
+  private incidenciasMock: Incidencia[] = [
+    {
+      id: 1,
+      titulo: 'Pan de molde caducado',
+      descripcion: 'Nos han llegado 3 paquetes con fecha de ayer.',
+      fecha: new Date('2024-05-20'),
+      estado: 'ABIERTA',
+      prioridad: 'ALTA',
+      clienteId: 2 // Bar Pepe
+    },
+    {
+      id: 2,
+      titulo: 'Falta albarán',
+      descripcion: 'El repartidor no dejó el papel.',
+      fecha: new Date('2024-05-21'),
+      estado: 'RESUELTA',
+      prioridad: 'BAJA',
+      clienteId: 1 // Restaurante El Quijote
+    }
+  ];
 
-  // GUARDAR INCIDENCIA (CREAR)
+  // 1. LISTAR TODAS (Para el Admin)
+  getIncidencias(): Observable<Incidencia[]> {
+    return of([...this.incidenciasMock]).pipe(delay(500));
+  }
+
+  // 2. CREAR (Para el Cliente)
   createIncidencia(datos: Partial<Incidencia>): Observable<boolean> {
-    
-    const nuevaIncidencia: Incidencia = {
+    const nueva: Incidencia = {
       id: this.incidenciasMock.length + 1,
       titulo: datos.titulo || 'Sin título',
       descripcion: datos.descripcion || '',
-      fecha: new Date(), // Fecha de ahora mismo
-      estado: 'ABIERTA', // Siempre nacen abiertas
-      prioridad: 'MEDIA', // Por defecto
-      ...datos
+      fecha: new Date(),
+      estado: 'ABIERTA',
+      prioridad: 'MEDIA',
+      clienteId: 99 // Simulado
     } as Incidencia;
 
-    this.incidenciasMock.push(nuevaIncidencia);
-    
-    console.log('📨 Incidencia enviada al servidor (Mock):', nuevaIncidencia);
-    
-    return of(true).pipe(delay(800)); // Simulamos que tarda un poco en enviarse
+    this.incidenciasMock.unshift(nueva); // Añadir al principio de la lista
+    return of(true).pipe(delay(800));
+  }
+
+  // 3. RESOLVER (Para el Admin)
+  resolverIncidencia(id: number): Observable<boolean> {
+    const incidencia = this.incidenciasMock.find(i => i.id === id);
+    if (incidencia) {
+      incidencia.estado = 'RESUELTA';
+    }
+    return of(true).pipe(delay(400));
   }
 }

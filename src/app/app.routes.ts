@@ -10,6 +10,7 @@ import { ClientIncidenciaFormComponent } from './features/client-incidencia-form
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { ClienteListComponent } from './features/cliente-list/cliente-list.component';
 import { ClienteFormComponent } from './features/cliente-form/cliente-form.component';
+import { AdminIncidenciaListComponent } from './features/admin-incidencia-list/admin-incidencia-list.component';
 
 
 export const routes: Routes = [
@@ -24,6 +25,7 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'clientes', component: ClienteListComponent },
+      { path: 'incidencias', component: AdminIncidenciaListComponent },
       { path: 'clientes/nuevo', component: ClienteFormComponent },
       { path: 'clientes/editar/:id', component: ClienteFormComponent },
       
