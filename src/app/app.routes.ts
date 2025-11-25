@@ -11,6 +11,7 @@ import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { ClienteListComponent } from './features/cliente-list/cliente-list.component';
 import { ClienteFormComponent } from './features/cliente-form/cliente-form.component';
 import { AdminIncidenciaListComponent } from './features/admin-incidencia-list/admin-incidencia-list.component';
+import { ClientPedidosFormComponent } from './features/client-pedidos-form/client-pedidos-form.component';
 
 
 export const routes: Routes = [
@@ -39,11 +40,15 @@ export const routes: Routes = [
     path: 'portal-cliente', 
     component: ClientLayoutComponent, // <--- Usamos el Layout Nuevo
     children: [
-      { path: 'dashboard', component: ClientDashboardComponent },
-      { path: 'incidencia/nueva', component: ClientIncidenciaFormComponent },
-      // Redirección por defecto
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' }
-    ]
+  { path: 'dashboard', component: ClientDashboardComponent },
+  { path: 'incidencia/nueva', component: ClientIncidenciaFormComponent },
+  
+  // 1. AÑADE LA COMA AQUÍ AL FINAL 👇
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
+  
+  // 2. CORRIGE LA RUTA (Quita 'portal-cliente/') 👇
+  { path: 'pedidos/nuevo', component: ClientPedidosFormComponent } 
+]
   },
 
   // REDIRECCIÓN INICIAL: Si entras a la raíz, vas al login
