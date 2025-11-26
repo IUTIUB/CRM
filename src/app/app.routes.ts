@@ -6,12 +6,14 @@ import { LoginComponent } from './core/auth/login/login.component';
 import { ClientLayoutComponent } from './layout/client-layout/client-layout.component';
 import { ClientDashboardComponent } from './features/client-dashboard/client-dashboard.component';
 import { ClientIncidenciaFormComponent } from './features/client-incidencia-form/client-incidencia-form.component';
+import { ClientDatosFormComponent } from './core/features/client-datos-form/client-datos-form.component';
+import { ClientPedidosFormComponent } from './features/client-pedidos-form/client-pedidos-form.component';
+
 // Componentes Admin
 import { DashboardComponent } from './features/dashboard/dashboard.component';
 import { ClienteListComponent } from './features/cliente-list/cliente-list.component';
 import { ClienteFormComponent } from './features/cliente-form/cliente-form.component';
 import { AdminIncidenciaListComponent } from './features/admin-incidencia-list/admin-incidencia-list.component';
-import { ClientPedidosFormComponent } from './features/client-pedidos-form/client-pedidos-form.component';
 
 
 export const routes: Routes = [
@@ -42,6 +44,12 @@ export const routes: Routes = [
     children: [
   { path: 'dashboard', component: ClientDashboardComponent },
   { path: 'incidencia/nueva', component: ClientIncidenciaFormComponent },
+
+  { path: 'dashboard', component: ClientDashboardComponent },
+    { path: 'pedidos/nuevo', component: ClientPedidosFormComponent },
+    
+    // 2. AÑADE ESTA LÍNEA NUEVA 👇
+    { path: 'perfil', component: ClientDatosFormComponent },
   
   // 1. AÑADE LA COMA AQUÍ AL FINAL 👇
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
