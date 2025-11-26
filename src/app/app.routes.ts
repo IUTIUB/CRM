@@ -6,8 +6,9 @@ import { LoginComponent } from './core/auth/login/login.component';
 import { ClientLayoutComponent } from './layout/client-layout/client-layout.component';
 import { ClientDashboardComponent } from './features/client-dashboard/client-dashboard.component';
 import { ClientIncidenciaFormComponent } from './features/client-incidencia-form/client-incidencia-form.component';
-import { ClientDatosFormComponent } from './core/features/client-datos-form/client-datos-form.component';
 import { ClientPedidosFormComponent } from './features/client-pedidos-form/client-pedidos-form.component';
+import { ClientDatosFormComponent } from './features/client-datos-form/client-datos-form.component'; // <--- Esta ruta debe ser real
+
 
 // Componentes Admin
 import { DashboardComponent } from './features/dashboard/dashboard.component';
@@ -47,9 +48,10 @@ export const routes: Routes = [
 
   { path: 'dashboard', component: ClientDashboardComponent },
     { path: 'pedidos/nuevo', component: ClientPedidosFormComponent },
-    
-    // 2. AÑADE ESTA LÍNEA NUEVA 👇
     { path: 'perfil', component: ClientDatosFormComponent },
+    // 2. AÑADE ESTA LÍNEA NUEVA 👇
+    { path: 'dashboard', component: ClientDashboardComponent }, // Ahora ya existe esta clase de nuevo
+    
   
   // 1. AÑADE LA COMA AQUÍ AL FINAL 👇
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
