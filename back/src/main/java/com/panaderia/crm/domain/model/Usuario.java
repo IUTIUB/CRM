@@ -3,29 +3,31 @@ package com.panaderia.crm.domain.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+@Data
 @Entity
 @Table(name = "usuarios")
-@Data
 public class Usuario {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
 
     @Column(nullable = false)
     private String password;
 
-    @Column(unique = true, nullable = false)
+    // --- NUEVOS CAMPOS NECESARIOS ---
+    @Column(nullable = false, unique = true)
     private String email;
+
+    private boolean activo;
+    // --------------------------------
+
+    private String nombre;
+    private String apellido;
 
     @Enumerated(EnumType.STRING)
     private Rol rol;
-
-    private Boolean activo = true;
-
-    public enum Rol {
-        ADMIN, COMERCIAL, OBRADOR, CLIENTE
-    }
 }

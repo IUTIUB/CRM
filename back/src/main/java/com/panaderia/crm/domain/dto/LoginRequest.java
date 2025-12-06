@@ -1,4 +1,5 @@
 package com.panaderia.crm.domain.dto;
+
 import lombok.Data;
 
 @Data

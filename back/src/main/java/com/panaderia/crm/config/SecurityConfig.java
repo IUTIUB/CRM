@@ -27,8 +27,14 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
+                // Permisos para autenticación (Login/Registro)
                 .requestMatchers("/api/auth/**").permitAll()
-                .anyRequest().authenticated()
+                
+                // NUEVO: Permisos para los productos (Inventario)
+                .requestMatchers("/api/productos/**").permitAll()
+
+                // Mantenemos el resto abierto para pruebas
+                .anyRequest().permitAll()
             );
         return http.build();
     }
