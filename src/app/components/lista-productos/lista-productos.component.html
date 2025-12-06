@@ -1,0 +1,25 @@
+<div style="padding: 20px; background: white; margin: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+  <h2 style="color: #333; border-bottom: 2px solid #0d6efd; padding-bottom: 10px;">
+    🥐 Inventario de Panadería
+    </h2>
+
+  <router-outlet></router-outlet>
+
+  <ul style="list-style: none; padding: 0;">
+    <li *ngFor="let producto of productos" style="border-bottom: 1px solid #eee; padding: 15px; display: flex; justify-content: space-between;">
+      <div>
+        <strong style="color: #0d6efd; font-size: 1.1em;">{{ producto.nombre }}</strong>
+        <div style="color: #666; font-size: 0.9em;">{{ producto.descripcion }}</div>
+      </div>
+      <div style="text-align: right;">
+        <span style="font-weight: bold; font-size: 1.2em;">{{ producto.precio }}€</span>
+        <br>
+        <span style="color: gray; font-size: 0.8em;">Stock: {{ producto.stock }}</span>
+      </div>
+    </li>
+  </ul>
+
+  <div *ngIf="productos.length === 0" style="color: gray; text-align: center; padding: 20px;">
+    Cargando productos o inventario vacío...
+  </div>
+</div>
