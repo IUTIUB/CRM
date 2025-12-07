@@ -1,80 +1,49 @@
 {
-<<<<<<< Updated upstream
-  "hash": "7f94082d",
-  "configHash": "f49e163e",
-  "lockfileHash": "8eb286df",
-  "browserHash": "659506a5",
-=======
-  "hash": "6df6ee24",
-  "configHash": "0f15f582",
+  "hash": "e038e653",
+  "configHash": "e4bf0705",
   "lockfileHash": "a2985173",
-  "browserHash": "99a0e3e2",
->>>>>>> Stashed changes
+  "browserHash": "9cdb29de",
   "optimized": {
     "@angular/common": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/common.mjs",
       "file": "@angular_common.js",
-<<<<<<< Updated upstream
-      "fileHash": "116746cd",
+      "fileHash": "920a2410",
       "needsInterop": false
     },
     "@angular/common/http": {
       "src": "../../../../../../node_modules/@angular/common/fesm2022/http.mjs",
       "file": "@angular_common_http.js",
-      "fileHash": "a8025988",
-=======
-      "fileHash": "2079ad46",
->>>>>>> Stashed changes
+      "fileHash": "10e7ef5e",
       "needsInterop": false
     },
     "@angular/core": {
       "src": "../../../../../../node_modules/@angular/core/fesm2022/core.mjs",
       "file": "@angular_core.js",
-<<<<<<< Updated upstream
-      "fileHash": "6448da90",
-=======
-      "fileHash": "9b58c61c",
->>>>>>> Stashed changes
+      "fileHash": "b4a00d55",
       "needsInterop": false
     },
     "@angular/forms": {
       "src": "../../../../../../node_modules/@angular/forms/fesm2022/forms.mjs",
       "file": "@angular_forms.js",
-<<<<<<< Updated upstream
-      "fileHash": "2e0d5d89",
-=======
-      "fileHash": "a674ff41",
->>>>>>> Stashed changes
+      "fileHash": "be0e0da9",
       "needsInterop": false
     },
     "@angular/platform-browser": {
       "src": "../../../../../../node_modules/@angular/platform-browser/fesm2022/platform-browser.mjs",
       "file": "@angular_platform-browser.js",
-<<<<<<< Updated upstream
-      "fileHash": "0b40b54a",
-=======
-      "fileHash": "a21e0e74",
->>>>>>> Stashed changes
+      "fileHash": "1abc5636",
       "needsInterop": false
     },
     "@angular/router": {
       "src": "../../../../../../node_modules/@angular/router/fesm2022/router.mjs",
       "file": "@angular_router.js",
-<<<<<<< Updated upstream
-      "fileHash": "781cef82",
-=======
-      "fileHash": "b4203ef8",
->>>>>>> Stashed changes
+      "fileHash": "3ce10b4f",
       "needsInterop": false
     },
     "rxjs": {
       "src": "../../../../../../node_modules/rxjs/dist/esm5/index.js",
       "file": "rxjs.js",
-<<<<<<< Updated upstream
-      "fileHash": "8927bd46",
-=======
-      "fileHash": "b2c66b28",
->>>>>>> Stashed changes
+      "fileHash": "e0be0503",
       "needsInterop": false
     }
   },
