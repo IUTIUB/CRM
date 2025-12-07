@@ -17,7 +17,7 @@
                 <h2 class="text-xl font-bold text-gray-800">Resumen del día</h2>
                 <div class="hidden md:flex items-center text-sm text-gray-500 bg-gray-100 px-3 py-1.5 rounded-full border border-gray-200">
                     <i class="ph ph-calendar-blank mr-2 text-gray-600"></i> 
-                    <span id="fecha-actual">Cargando fecha...</span>
+                    <span id="fecha-actual" class="capitalize">Cargando fecha...</span>
                 </div>
             </div>
 
@@ -229,23 +229,16 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const dateElement = document.getElementById('fecha-actual');
-            const now = new Date();
-            
-            // Array de meses corto en español
-            const meses = [
-                "Ene", "Feb", "Mar", "Abr", "May", "Jun", 
-                "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"
-            ];
-            
-            const dia = now.getDate();
-            const mes = meses[now.getMonth()];
-            const anio = now.getFullYear();
-            
-            // Formato: "7 Dic, 2025" (mantiene el estilo visual original)
-            dateElement.textContent = `${dia} ${mes}, ${anio}`;
-        });
-    </script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const fechaElemento = document.getElementById('fecha-actual');
+        const ahora = new Date();
+        
+        // Opciones para que salga bonito en español (Ej: 7 dic 2025)
+        const opciones = { day: 'numeric', month: 'short', year: 'numeric' };
+        
+        // Convertimos la fecha al formato español
+        fechaElemento.textContent = ahora.toLocaleDateString('es-ES', opciones);
+    });
+</script>
 </body>
 </html>
