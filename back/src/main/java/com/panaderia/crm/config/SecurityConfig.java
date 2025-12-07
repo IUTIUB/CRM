@@ -27,13 +27,16 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(auth -> auth
-                // Permisos para autenticación (Login/Registro)
+                // 1. Permisos para autenticación (Login/Registro)
                 .requestMatchers("/api/auth/**").permitAll()
                 
-                // NUEVO: Permisos para los productos (Inventario)
+                // 2. Permisos para los productos (Inventario)
                 .requestMatchers("/api/productos/**").permitAll()
 
-                // Mantenemos el resto abierto para pruebas
+                // 3. NUEVO: Permisos para los clientes
+                .requestMatchers("/api/clientes/**").permitAll()
+
+                // Mantenemos el resto abierto temporalmente para evitar errores mientras desarrollas
                 .anyRequest().permitAll()
             );
         return http.build();
@@ -42,6 +45,7 @@ public class SecurityConfig {
     @Bean
     public UrlBasedCorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
+        // Permitimos solicitudes desde Angular (puerto 4200)
         config.setAllowedOrigins(List.of("http://localhost:4200"));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
