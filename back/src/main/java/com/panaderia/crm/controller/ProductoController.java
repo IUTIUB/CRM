@@ -14,15 +14,19 @@ public class ProductoController {
 
     private final ProductoRepository productoRepository;
 
-    // 1. Obtener todos los productos (GET)
     @GetMapping
     public List<Producto> listarProductos() {
         return productoRepository.findAll();
     }
 
-    // 2. Guardar un nuevo producto (POST)
     @PostMapping
     public Producto guardarProducto(@RequestBody Producto producto) {
         return productoRepository.save(producto);
+    }
+
+    // --- NUEVO: MÉTODO PARA BORRAR ---
+    @DeleteMapping("/{id}")
+    public void eliminarProducto(@PathVariable Long id) {
+        productoRepository.deleteById(id);
     }
 }

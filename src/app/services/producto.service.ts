@@ -6,18 +6,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ProductoService {
-  
   private apiUrl = 'http://localhost:8080/api/productos';
 
   constructor(private http: HttpClient) { }
 
-  // Obtener lista
   getProductos(): Observable<any> {
     return this.http.get(this.apiUrl);
   }
 
-  // Guardar nuevo (Lo usarás pronto)
   crearProducto(producto: any): Observable<any> {
     return this.http.post(this.apiUrl, producto);
+  }
+
+  // --- NUEVO: FUNCIÓN ELIMINAR ---
+  eliminarProducto(id: number): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/${id}`);
   }
 }
