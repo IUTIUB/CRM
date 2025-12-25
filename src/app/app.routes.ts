@@ -19,7 +19,7 @@ import { AdminIncidenciaListComponent } from './features/admin-incidencia-list/a
 
 export const routes: Routes = [
   
-  // 1. RUTA PÚBLICA: LOGIN (Es la primera que se ve)
+  // 1. RUTA PÚBLICA: LOGIN 
   { path: 'login', component: LoginComponent },
 
   // 2. ZONA PRIVADA (ADMIN)
@@ -38,10 +38,10 @@ export const routes: Routes = [
     ]
   },
 
-  // 3. ZONA PRIVADA (CLIENTE - La haremos luego)
+  // 3. ZONA PRIVADA (CLIENTE)
   { 
     path: 'portal-cliente', 
-    component: ClientLayoutComponent, // <--- Usamos el Layout Nuevo
+    component: ClientLayoutComponent, 
     children: [
   { path: 'dashboard', component: ClientDashboardComponent },
   { path: 'incidencia/nueva', component: ClientIncidenciaFormComponent },
@@ -49,21 +49,21 @@ export const routes: Routes = [
   { path: 'dashboard', component: ClientDashboardComponent },
     { path: 'pedidos/nuevo', component: ClientPedidosFormComponent },
     { path: 'perfil', component: ClientDatosFormComponent },
-    // 2. AÑADE ESTA LÍNEA NUEVA 👇
-    { path: 'dashboard', component: ClientDashboardComponent }, // Ahora ya existe esta clase de nuevo
+    
+    { path: 'dashboard', component: ClientDashboardComponent }, 
     
   
-  // 1. AÑADE LA COMA AQUÍ AL FINAL 👇
+  
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' }, 
   
-  // 2. CORRIGE LA RUTA (Quita 'portal-cliente/') 👇
+  
   { path: 'pedidos/nuevo', component: ClientPedidosFormComponent } 
 ]
   },
 
-  // REDIRECCIÓN INICIAL: Si entras a la raíz, vas al login
+ //Si entras a la raíz, vas al login
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   
-  // CUALQUIER COSA RARA -> LOGIN
+  
   { path: '**', redirectTo: 'login' }
 ];
